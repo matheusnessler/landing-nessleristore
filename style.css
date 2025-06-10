@@ -8,7 +8,7 @@ body {
 
 .hero {
   background: url('images/0B9192A3-BABD-40AB-A7C8-F4F6E87C5659.png') center/cover no-repeat;
-  height: 480px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,10 +45,11 @@ body {
 
 .produtos-destaque {
   position: relative;
+  padding: 40px 20px;
   text-align: center;
 }
 
-.fundo-produtos {
+.produtos-destaque .fundo-produtos {
   width: 100%;
   height: auto;
   display: block;
@@ -56,9 +57,9 @@ body {
 
 .produtos-grid {
   position: absolute;
-  top: 22%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   width: 90%;
   display: flex;
   justify-content: space-around;
