@@ -7,7 +7,7 @@ body {
 }
 
 .hero {
-  background: url('images/0B9192A3-BABD-40AB-A7C8-F4F6E87C5659.png') center/cover no-repeat;
+  background: url('images/bloco1.png') center/cover no-repeat;
   height: 600px;
   display: flex;
   flex-direction: column;
