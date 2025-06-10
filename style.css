@@ -25,15 +25,13 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 2.2em;
+  font-size: 2em;
   margin: 0 0 10px;
-  max-width: 600px;
 }
 
 .hero-content p {
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-bottom: 20px;
-  max-width: 500px;
 }
 
 .cta-button {
@@ -46,11 +44,110 @@ body {
 }
 
 .produtos-destaque {
-  padding: 0;
+  background: url('images/bloco2-desktop.png') no-repeat center center;
+  background-size: cover;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  height: 600px;
 }
 
-.fundo-produtos {
+.produtos-destaque h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.produtos-grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.produto {
+  max-width: 120px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 420px;
+    background-size: contain;
+  }
+
+  .produtos-destaque {
+    background: url('images/bloco2-mobile.png') no-repeat center center;
+    background-size: contain;
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .produtos-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .produto {
+    max-width: 130px;
+  }
+}
+
+.cta-button {
+  background: #ff6600;
+  color: #fff;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.produtos-destaque {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #000;
+}
+
+.produtos-destaque h2 {
+  margin-bottom: 30px;
+  font-size: 1.8em;
+}
+
+.produtos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.produto {
+  max-width: 160px;
   width: 100%;
   height: auto;
-  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 20px;
+    background-size: cover;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5em;
+  }
+
+  .cta-button {
+    padding: 12px 20px;
+  }
+
+  .produtos-grid {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .produto {
+    max-width: 45%;
+  }
 }
