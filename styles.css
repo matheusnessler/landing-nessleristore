@@ -366,16 +366,18 @@ body {
     overflow: hidden;
     transition: all 0.3s ease;
     padding: var(--spacing-xl);
-}
-
-.perfil-card.featured {
-    border: 2px solid var(--nessler-orange);
-    transform: scale(1.02);
+    border: 2px solid transparent;
 }
 
 .perfil-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--nessler-orange);
+}
+
+.perfil-card.featured {
+    border-color: var(--nessler-orange);
+    transform: scale(1.02);
 }
 
 .perfil-card.featured:hover {
@@ -924,5 +926,20 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+/* Mapa */
+.map-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.map-image:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
 }
 
