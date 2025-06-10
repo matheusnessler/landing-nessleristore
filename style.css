@@ -7,8 +7,8 @@ body {
 }
 
 .hero {
-  background: url('images/0B9192A3-BABD-40AB-A7C8-F4F6E87C5659.png') center/cover no-repeat;
-  height: 600px;
+  background: url('images/bg-bloco1.png') center/cover no-repeat;
+  height: 540px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,10 +43,10 @@ body {
   border-radius: 8px;
 }
 
-.produtos-destaque {
+#bloco2 {
+  background: url('images/bg-bloco2.png') center/cover no-repeat;
+  padding: 80px 20px;
   position: relative;
-  padding: 40px 20px;
-  text-align: center;
 }
 
 .produtos-destaque .fundo-produtos {
