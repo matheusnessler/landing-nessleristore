@@ -6,8 +6,9 @@ body {
   color: #fff;
 }
 
+/* Bloco 1 */
 .hero {
-  background: url('images/bloco1.png') center/cover no-repeat;
+  background: url('images/0B9192A3-BABD-40AB-A7C8-F4F6E87C5659.png') center/cover no-repeat;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -43,31 +44,30 @@ body {
   border-radius: 8px;
 }
 
+/* Bloco 2 */
 .produtos-destaque {
-  position: relative;
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
-.produtos-destaque .fundo-produtos {
-  width: 100%;
-  height: auto;
-  display: block;
+.produtos-destaque h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
 }
 
 .produtos-grid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 40px;
 }
 
 .produto {
-  max-width: 160px;
-  margin: 10px;
+  width: 140px;
+}
+
+@media (max-width: 768px) {
+  .produto {
+    width: 45%;
+  }
 }
