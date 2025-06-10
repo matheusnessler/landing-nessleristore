@@ -7,8 +7,8 @@ body {
 }
 
 .hero {
-  background: url('images/bg-bloco1.png') center/cover no-repeat;
-  height: 540px;
+  background: url('images/bloco1.png') center/cover no-repeat;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,13 +25,15 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   margin: 0 0 10px;
+  max-width: 600px;
 }
 
 .hero-content p {
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-bottom: 20px;
+  max-width: 500px;
 }
 
 .cta-button {
@@ -43,31 +45,12 @@ body {
   border-radius: 8px;
 }
 
-#bloco2 {
-  background: url('images/bg-bloco2.png') center/cover no-repeat;
-  padding: 80px 20px;
-  position: relative;
+.produtos-destaque {
+  padding: 0;
 }
 
-.produtos-destaque .fundo-produtos {
+.fundo-produtos {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.produtos-grid {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.produto {
-  max-width: 160px;
-  margin: 10px;
 }

@@ -3,30 +3,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nessler iStore</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
   <section class="hero">
-    <img src="images/logo.png" alt="Logo Nessler" class="logo" />
+    <img src="images/logo.png" alt="Logo Nessler iStore" class="logo"/>
     <div class="hero-content">
-      <h1>A experiência Apple que você merece —<br>com segurança, consultoria e exclusividade.</h1>
+      <h1>A experiência Apple que você merece —<br/>com segurança, consultoria e exclusividade.</h1>
       <p>Receba atendimento 1:1 com especialistas e descubra qual é o produto ideal pra você</p>
-      <a href="#produtos" class="cta-button">Quero meu Apple com confiança agora</a>
+      <a href="#" class="cta-button">Quero meu Apple com confiança agora</a>
     </div>
   </section>
 
-  <section id="bloco2" class="produtos-destaque">
-    <img src="images/bg-bloco2.png" alt="Fundo Produtos" class="fundo-produtos">
-    <div class="produtos-grid">
-      <img src="images/iphone16.png" alt="iPhone" class="produto">
-      <img src="images/ipad-pro.png" alt="iPad" class="produto">
-      <img src="images/macbook-product.png" alt="MacBook" class="produto">
-      <img src="images/applewatch.png" alt="AppleWatch" class="produto">
-    </div>
+  <section class="produtos-destaque">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/bloco2-mobile-ajustado.png" />
+      <img src="images/bloco2-desktop.png" alt="Produtos em Foco" class="fundo-produtos"/>
+    </picture>
   </section>
-
 </body>
 </html>
