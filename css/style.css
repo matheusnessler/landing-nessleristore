@@ -1,0 +1,35 @@
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(to bottom, #0f0f0f, #ff5500);
+    color: white;
+}
+header {
+    padding: 20px;
+}
+.logo {
+    height: 40px;
+}
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 40px;
+}
+.hero-text {
+    max-width: 600px;
+}
+.cta-button {
+    display: inline-block;
+    background-color: #ff5500;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.hero-image img {
+    max-height: 300px;
+}

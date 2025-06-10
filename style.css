@@ -1,0 +1,63 @@
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: white;
+}
+
+.hero {
+    background: url('images/bloco1.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.logo {
+    height: 40px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    background-color: #ff4500;
+    padding: 1rem 1.5rem;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.produtos {
+    background: linear-gradient(to bottom, #000000, #ff4500);
+    padding: 3rem 2rem;
+}
+
+.produtos h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.produtos-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.produtos-grid img {
+    width: 150px;
+    border-radius: 1rem;
+}
