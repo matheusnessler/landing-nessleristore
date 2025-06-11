@@ -375,15 +375,6 @@ body {
     border-color: var(--nessler-orange);
 }
 
-.perfil-card.featured {
-    border-color: var(--nessler-orange);
-    transform: scale(1.02);
-}
-
-.perfil-card.featured:hover {
-    transform: scale(1.02) translateY(-4px);
-}
-
 .perfil-image {
     display: flex;
     justify-content: center;
