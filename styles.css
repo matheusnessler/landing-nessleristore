@@ -95,8 +95,7 @@ body {
 
 /* Hero Section Premium */
 .hero-premium {
-    background: linear-gradient(135deg, var(--nessler-black) 0%, #1a1a1a 100%);
-    color: var(--nessler-white);
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FF6B35 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -111,7 +110,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(255, 87, 34, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -932,5 +931,48 @@ body {
 .map-image:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-md);
+}
+
+
+/* Responsividade Hero */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .hero-product {
+        order: -1;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .ecosystem-image {
+        transform: rotate(0deg) !important;
+        max-width: 80%;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+}
+
+/* Estilo da imagem do ecossistema */
+.ecosystem-image {
+    max-width: 100%;
+    height: auto;
+    transform: rotate(-15deg);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+/* Mapa clicável */
+.mapa-container a {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.mapa-container a:hover {
+    opacity: 0.9;
 }
 
