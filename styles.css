@@ -95,7 +95,7 @@ body {
 
 /* Hero Section Premium */
 .hero-premium {
-    background-image: url('images/apple-ecosystem-hero-final-v12.png');
+    background-image: url('images/hero-iphone-background.png');
     background-size: cover;
     background-position: right center;
     background-repeat: no-repeat;
@@ -113,7 +113,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
 }
 
@@ -136,8 +136,8 @@ body {
 /* Desktop: texto ao lado da imagem */
 @media (min-width: 992px) {
     .hero-premium {
-        background-position: 80% center;
-        background-size: 60% auto;
+        background-position: right center;
+        background-size: 50% auto;
     }
     
     .hero-content {
@@ -147,6 +147,7 @@ body {
     .hero-text {
         max-width: 90%;
         grid-column: 1;
+        padding-left: var(--spacing-md);
     }
 }
 
@@ -155,6 +156,10 @@ body {
     .hero-premium {
         background-position: center;
         background-size: cover;
+    }
+    
+    .hero-premium::before {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
     }
     
     .hero-content {
