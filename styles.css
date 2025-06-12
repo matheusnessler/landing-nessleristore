@@ -95,7 +95,10 @@ body {
 
 /* Hero Section Premium */
 .hero-premium {
-    background: var(--nessler-black);
+    background-image: url('images/apple-ecosystem-hero-final-v12.png');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -110,7 +113,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
     pointer-events: none;
 }
 
@@ -120,13 +123,49 @@ body {
     padding: var(--spacing-xxxl) var(--spacing-md);
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--spacing-xxl);
     align-items: center;
+}
+
+/* Desktop: texto ao lado da imagem */
+@media (min-width: 992px) {
+    .hero-premium {
+        background-position: 80% center;
+        background-size: 60% auto;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .hero-text {
+        max-width: 90%;
+        grid-column: 1;
+    }
+}
+
+/* Mobile: texto sobreposto à imagem */
+@media (max-width: 991px) {
+    .hero-premium {
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-text {
+        padding: var(--spacing-xl) 0;
+        margin: 0 auto;
+        max-width: 90%;
+    }
 }
 
 .hero-title {
