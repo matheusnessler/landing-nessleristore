@@ -95,7 +95,7 @@ body {
 
 /* Hero Section Premium */
 .hero-premium {
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FF6B35 100%);
+    background: var(--nessler-black);
     min-height: 100vh;
     display: flex;
     align-items: center;
