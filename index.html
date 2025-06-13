@@ -332,7 +332,7 @@
                     </div>
                 </div>
                 <div class="consultoria-form">
-                    <form id="consultoriaForm" class="form-premium" action="https://submit-form.com/matheusnessler+1epcuwhg6je3nenxtcq2@boards.trello.com">
+                    <form id="consultoriaForm" class="form-premium">
                         <div class="form-group">
                             <label for="nome">Nome completo</label>
                             <input type="text" id="nome" name="nome" required>
@@ -369,7 +369,6 @@
                                 </label>
                             </div>
                         </div>
-                        <input type="hidden" name="_redirect" value="https://nessler-landing.onrender.com/obrigado.html">
                         <button type="submit" class="btn-primary-premium">
                             Agendar Consultoria
                         </button>
@@ -492,6 +491,49 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Script para integração com Trello -->
+    <script>
+        document.getElementById('consultoriaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Captura os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const interesse = document.getElementById('interesse').value;
+            const preferenciaContato = document.querySelector('input[name="preferencia_contato"]:checked').value;
+            
+            // Envia os dados para o webhook que integra com Trello
+            fetch('https://hook.us1.make.com/abc123xyz456', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    whatsapp: whatsapp,
+                    interesse: interesse,
+                    preferencia_contato: preferenciaContato,
+                    email_trello: 'matheusnessler+1epcuwhg6je3nenxtcq2@boards.trello.com'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Consultoria agendada com sucesso! Entraremos em contato em breve.');
+                    document.getElementById('consultoriaForm').reset();
+                } else {
+                    throw new Error('Erro ao enviar formulário');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                // Fallback: envia email diretamente
+                const mailtoLink = `mailto:matheusnessler+1epcuwhg6je3nenxtcq2@boards.trello.com?subject=Nova Consultoria Nessler&body=Nome: ${nome}%0D%0AWhatsApp: ${whatsapp}%0D%0AInteresse: ${interesse}%0D%0APreferência de contato: ${preferenciaContato}`;
+                window.location.href = mailtoLink;
+            });
+        });
+    </script>
+    
     <!-- Botão flutuante de WhatsApp -->
     <a href="https://wa.me/5547989071575" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
