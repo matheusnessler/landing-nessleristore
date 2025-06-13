@@ -492,7 +492,7 @@
 
     <script src="script.js"></script>
     
-    <!-- Script para integração com Trello -->
+    <!-- Script para integração com Google Forms -->
     <script>
         document.getElementById('consultoriaForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -503,33 +503,34 @@
             const interesse = document.getElementById('interesse').value;
             const preferenciaContato = document.querySelector('input[name="preferencia_contato"]:checked').value;
             
-            // Envia os dados para o webhook que integra com Trello
-            fetch('Trello Landing Page Nessler iStore <https://hook.us2.make.com/za5rstvdbhnail2d21hv4q9wug6y6hj1>', {
+            // Cria um FormData para enviar ao Google Forms
+            const formData = new FormData();
+            
+            // IDs dos campos do Google Forms (extraídos da análise do código HTML)
+            formData.append('entry.1448031346', nome); // Campo Nome completo
+            formData.append('entry.1789896004', whatsapp); // Campo WhatsApp
+            formData.append('entry.2110384281', interesse); // Campo Perfil/Produto de interesse
+            formData.append('entry.810522030', preferenciaContato === 'mensagem' ? 'Mensagem' : 'Ligação'); // Campo Preferência de contato
+            
+            // URL do Google Forms (sem o /viewform)
+            const googleFormsURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfl1RohnD_C-VA-TqKRC7XP1qPfztnZ7JfBTOLBuIBX6SGK-g/formResponse';
+            
+            // Envia os dados para o Google Forms
+            fetch(googleFormsURL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    nome: nome,
-                    whatsapp: whatsapp,
-                    interesse: interesse,
-                    preferencia_contato: preferenciaContato,
-                    email_trello: 'matheusnessler+1epcuwhg6je3nenxtcq2@boards.trello.com'
-                })
+                mode: 'no-cors', // Necessário para Google Forms
+                body: formData
             })
-            .then(response => {
-                if (response.ok) {
-                    alert('Consultoria agendada com sucesso! Entraremos em contato em breve.');
-                    document.getElementById('consultoriaForm').reset();
-                } else {
-                    throw new Error('Erro ao enviar formulário');
-                }
+            .then(() => {
+                // Como é no-cors, sempre chegará aqui
+                alert('Consultoria agendada com sucesso! Entraremos em contato em breve.');
+                document.getElementById('consultoriaForm').reset();
             })
             .catch(error => {
                 console.error('Erro:', error);
-                // Fallback: envia email diretamente
-                const mailtoLink = `mailto:matheusnessler+1epcuwhg6je3nenxtcq2@boards.trello.com?subject=Nova Consultoria Nessler&body=Nome: ${nome}%0D%0AWhatsApp: ${whatsapp}%0D%0AInteresse: ${interesse}%0D%0APreferência de contato: ${preferenciaContato}`;
-                window.location.href = mailtoLink;
+                // Fallback: abre o Google Forms diretamente
+                const googleFormsLink = `https://docs.google.com/forms/d/e/1FAIpQLSfl1RohnD_C-VA-TqKRC7XP1qPfztnZ7JfBTOLBuIBX6SGK-g/viewform?usp=pp_url&entry.1448031346=${encodeURIComponent(nome)}&entry.1789896004=${encodeURIComponent(whatsapp)}&entry.2110384281=${encodeURIComponent(interesse)}&entry.810522030=${encodeURIComponent(preferenciaContato === 'mensagem' ? 'Mensagem' : 'Ligação')}`;
+                window.open(googleFormsLink, '_blank');
             });
         });
     </script>
