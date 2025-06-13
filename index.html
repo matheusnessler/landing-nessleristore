@@ -9,6 +9,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS para o botão flutuante de WhatsApp -->
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float i {
+            margin-top: 0;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 8px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+    </style>
+    <!-- Font Awesome para o ícone de WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header Premium -->
@@ -286,7 +332,7 @@
                     </div>
                 </div>
                 <div class="consultoria-form">
-                    <form id="consultoriaForm" class="form-premium">
+                    <form id="consultoriaForm" class="form-premium" action="https://submit-form.com/matheusnessler+1epcuwhg6je3nenxtcq2@boards.trello.com">
                         <div class="form-group">
                             <label for="nome">Nome completo</label>
                             <input type="text" id="nome" name="nome" required>
@@ -310,6 +356,20 @@
                                 <option value="Outros">Outros</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>Preferência de contato</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="preferencia_contato" value="mensagem" checked>
+                                    Mensagem
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="preferencia_contato" value="ligacao">
+                                    Ligação
+                                </label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_redirect" value="https://nessler-landing.onrender.com/obrigado.html">
                         <button type="submit" class="btn-primary-premium">
                             Agendar Consultoria
                         </button>
@@ -327,47 +387,56 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Como funciona a consultoria especializada?</h3>
+                        <h3>A Nessler iStore tem loja física?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Nossa consultoria é um atendimento personalizado onde nossos especialistas Apple analisam suas necessidades específicas e apresentam as melhores soluções. É gratuita e sem compromisso de compra.</p>
+                        <p>Sim. Contamos com ponto físico em Joinville (SC), com atendimento exclusivo mediante agendamento. Também realizamos vendas e consultorias 100% online, sempre com acompanhamento humano e especializado.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Todos os produtos são originais Apple?</h3>
+                        <h3>Vocês trabalham com produtos novos ou seminovos?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim, trabalhamos exclusivamente com produtos originais Apple, com garantia oficial e nota fiscal. Somos uma loja autorizada com mais de 4 anos de experiência no mercado.</p>
+                        <p>Ambos. Oferecemos produtos novos lacrados com 1 ano de garantia, e modelos seminovos certificados, revisados com todo rigor e garantia de até 6 meses. Sempre deixamos claro a condição de cada aparelho.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Como funciona o aparelho reserva?</h3>
+                        <h3>Os produtos estão disponíveis para pronta entrega?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Durante o período de garantia, caso seu produto precise de reparo, oferecemos um aparelho reserva para que você não fique sem seu dispositivo Apple. É um diferencial exclusivo da Nessler iStore.</p>
+                        <p>Sim! Temos um estoque com ampla variedade para pronta entrega. Mas se você busca algo específico, fazemos encomendas sob medida com entrega rápida — incluindo capacidade, cor, modelo e tamanho de tela exatamente como você deseja.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Quais são as formas de pagamento?</h3>
+                        <h3>Como funciona o parcelamento?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Oferecemos diversas opções de pagamento, incluindo parcelamento em até 21x no cartão de crédito, PIX com desconto, e condições especiais para pagamento à vista.</p>
+                        <p>Facilitamos sua compra com parcelamento em até 21x no cartão. Também oferecemos condições especiais no Pix ou à vista.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Onde fica a loja física?</h3>
+                        <h3>E se eu tiver um problema com meu aparelho no futuro?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Estamos localizados em área nobre de Joinville, com ambiente premium e atendimento exclusivo. O endereço exato será compartilhado no agendamento da consultoria.</p>
+                        <p>Em casos de garantia — que são raros —, você conta com atendimento ágil, transparente e prioridade máxima. E o melhor: oferecemos um aparelho reserva para que você não fique sem usar enquanto resolvemos tudo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Por que confiar na Nessler iStore?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Já entregamos mais de 2.000 sonhos Apple com excelência, temos estrutura física, equipe real, reputação sólida e um compromisso: te entregar a melhor experiência Apple da sua vida.</p>
                     </div>
                 </div>
             </div>
@@ -423,6 +492,10 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- Botão flutuante de WhatsApp -->
+    <a href="https://wa.me/5547989071575" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
 

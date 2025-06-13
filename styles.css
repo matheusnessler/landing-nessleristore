@@ -95,7 +95,7 @@ body {
 
 /* Hero Section Premium */
 .hero-premium {
-    background-image: url('images/hero-iphone-background.png');
+    background-image: url('images/apple-ecosystem-hero-new.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -139,6 +139,8 @@ body {
         max-width: 90%;
         grid-column: 1;
         padding-left: var(--spacing-md);
+        color: #fff;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 }
 
