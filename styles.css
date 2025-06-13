@@ -97,7 +97,7 @@ body {
 .hero-premium {
     background-image: url('images/hero-iphone-background.png');
     background-size: cover;
-    background-position: right center;
+    background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
@@ -106,16 +106,7 @@ body {
     overflow: hidden;
 }
 
-.hero-premium::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-}
+/* Removido o pseudo-elemento ::before com gradiente */
 
 .hero-container {
     max-width: 1200px;
@@ -137,7 +128,7 @@ body {
 @media (min-width: 992px) {
     .hero-premium {
         background-position: right center;
-        background-size: 50% auto;
+        background-size: cover;
     }
     
     .hero-content {
