@@ -503,35 +503,47 @@
             const interesse = document.getElementById('interesse').value;
             const preferenciaContato = document.querySelector('input[name="preferencia_contato"]:checked').value;
             
-            // Cria um FormData para enviar ao Google Forms
-            const formData = new FormData();
+            // Método mais confiável: iframe invisível para envio ao Google Forms
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.name = 'hidden_iframe';
+            document.body.appendChild(iframe);
             
-            // IDs dos campos do Google Forms (extraídos da análise do código HTML)
-            formData.append('entry.1448031346', nome); // Campo Nome completo
-            formData.append('entry.1789896004', whatsapp); // Campo WhatsApp
-            formData.append('entry.2110384281', interesse); // Campo Perfil/Produto de interesse
-            formData.append('entry.810522030', preferenciaContato === 'mensagem' ? 'Mensagem' : 'Ligação'); // Campo Preferência de contato
+            // Cria um formulário temporário que será enviado via iframe
+            const tempForm = document.createElement('form');
+            tempForm.method = 'POST';
+            tempForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfl1RohnD_C-VA-TqKRC7XP1qPfztnZ7JfBTOLBuIBX6SGK-g/formResponse';
+            tempForm.target = 'hidden_iframe';
             
-            // URL do Google Forms (sem o /viewform)
-            const googleFormsURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfl1RohnD_C-VA-TqKRC7XP1qPfztnZ7JfBTOLBuIBX6SGK-g/formResponse';
+            // Adiciona os campos com os IDs corretos
+            const fields = [
+                { name: 'entry.1448031346', value: nome },
+                { name: 'entry.1789896004', value: whatsapp },
+                { name: 'entry.2110384281', value: interesse },
+                { name: 'entry.810522030', value: preferenciaContato === 'mensagem' ? 'Mensagem' : 'Ligação' }
+            ];
             
-            // Envia os dados para o Google Forms
-            fetch(googleFormsURL, {
-                method: 'POST',
-                mode: 'no-cors', // Necessário para Google Forms
-                body: formData
-            })
-            .then(() => {
-                // Como é no-cors, sempre chegará aqui
-                alert('Consultoria agendada com sucesso! Entraremos em contato em breve.');
-                document.getElementById('consultoriaForm').reset();
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                // Fallback: abre o Google Forms diretamente
-                const googleFormsLink = `https://docs.google.com/forms/d/e/1FAIpQLSfl1RohnD_C-VA-TqKRC7XP1qPfztnZ7JfBTOLBuIBX6SGK-g/viewform?usp=pp_url&entry.1448031346=${encodeURIComponent(nome)}&entry.1789896004=${encodeURIComponent(whatsapp)}&entry.2110384281=${encodeURIComponent(interesse)}&entry.810522030=${encodeURIComponent(preferenciaContato === 'mensagem' ? 'Mensagem' : 'Ligação')}`;
-                window.open(googleFormsLink, '_blank');
+            fields.forEach(field => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = field.name;
+                input.value = field.value;
+                tempForm.appendChild(input);
             });
+            
+            // Adiciona o formulário ao body e envia
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+            
+            // Remove o formulário temporário após o envio
+            setTimeout(() => {
+                document.body.removeChild(tempForm);
+                document.body.removeChild(iframe);
+            }, 1000);
+            
+            // Mostra mensagem de sucesso e limpa o formulário
+            alert('Consultoria agendada com sucesso! Entraremos em contato em breve.');
+            document.getElementById('consultoriaForm').reset();
         });
     </script>
     
