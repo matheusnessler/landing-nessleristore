@@ -492,8 +492,14 @@
 
     <script src="script.js"></script>
     
-    <!-- Script para integração com Google Forms -->
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Script para envio premium via EmailJS -->
     <script>
+        // Inicializa EmailJS com chave pública
+        emailjs.init("YOUR_PUBLIC_KEY"); // Você vai substituir pela sua chave
+        
         document.getElementById('consultoriaForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -503,47 +509,65 @@
             const interesse = document.getElementById('interesse').value;
             const preferenciaContato = document.querySelector('input[name="preferencia_contato"]:checked').value;
             
-            // Método mais confiável: iframe invisível para envio ao Google Forms
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = 'hidden_iframe';
-            document.body.appendChild(iframe);
+            // Validação
+            if (!nome || !whatsapp || !interesse || !preferenciaContato) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
             
-            // Cria um formulário temporário que será enviado via iframe
-            const tempForm = document.createElement('form');
-            tempForm.method = 'POST';
-            tempForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfl1RohnD_C-VA-TqKRC7XP1qPfztnZ7JfBTOLBuIBX6SGK-g/formResponse';
-            tempForm.target = 'hidden_iframe';
+            // Mostra loading
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
             
-            // Adiciona os campos com os IDs corretos
-            const fields = [
-                { name: 'entry.1448031346', value: nome },
-                { name: 'entry.1789896004', value: whatsapp },
-                { name: 'entry.2110384281', value: interesse },
-                { name: 'entry.810522030', value: preferenciaContato === 'mensagem' ? 'Mensagem' : 'Ligação' }
-            ];
+            // Parâmetros para o template do EmailJS
+            const templateParams = {
+                to_email: 'matheusnessler@gmail.com',
+                from_name: nome,
+                cliente_nome: nome,
+                cliente_whatsapp: whatsapp,
+                cliente_interesse: interesse,
+                cliente_preferencia: preferenciaContato,
+                data_envio: new Date().toLocaleString('pt-BR'),
+                origem: 'Landing Page Nessler iStore'
+            };
             
-            fields.forEach(field => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = field.name;
-                input.value = field.value;
-                tempForm.appendChild(input);
-            });
-            
-            // Adiciona o formulário ao body e envia
-            document.body.appendChild(tempForm);
-            tempForm.submit();
-            
-            // Remove o formulário temporário após o envio
-            setTimeout(() => {
-                document.body.removeChild(tempForm);
-                document.body.removeChild(iframe);
-            }, 1000);
-            
-            // Mostra mensagem de sucesso e limpa o formulário
-            alert('Consultoria agendada com sucesso! Entraremos em contato em breve.');
-            document.getElementById('consultoriaForm').reset();
+            // Envia email via EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    // Sucesso - experiência premium
+                    submitBtn.textContent = '✓ Enviado com Sucesso!';
+                    submitBtn.style.backgroundColor = '#4CAF50';
+                    
+                    setTimeout(() => {
+                        alert('Consultoria agendada com sucesso! Entraremos em contato em até 2 horas úteis.');
+                        document.getElementById('consultoriaForm').reset();
+                        
+                        // Restaura botão
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.backgroundColor = '';
+                        submitBtn.disabled = false;
+                    }, 1500);
+                    
+                }, function(error) {
+                    // Erro - fallback premium
+                    console.error('Erro EmailJS:', error);
+                    
+                    // Fallback: WhatsApp com experiência premium
+                    const whatsappMessage = `Olá! Gostaria de agendar uma consultoria Apple:%0A%0A👤 Nome: ${nome}%0A📱 WhatsApp: ${whatsapp}%0A🎯 Interesse: ${interesse}%0A📞 Preferência: ${preferenciaContato}`;
+                    
+                    submitBtn.textContent = 'Redirecionando para WhatsApp...';
+                    
+                    setTimeout(() => {
+                        window.open(`https://wa.me/5547989071575?text=${whatsappMessage}`, '_blank');
+                        
+                        // Restaura botão
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        document.getElementById('consultoriaForm').reset();
+                    }, 1000);
+                });
         });
     </script>
     
