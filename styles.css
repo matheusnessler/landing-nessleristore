@@ -992,6 +992,12 @@ body {
     .hero-title {
         font-size: clamp(2rem, 8vw, 3rem);
     }
+    
+    /* Ajuste da imagem hero para melhor visualização dos produtos no mobile */
+    .hero-premium {
+        background-size: 120% !important; /* Reduz o zoom para mostrar mais produtos */
+        background-position: center center !important;
+    }
 }
 
 /* Estilo da imagem do ecossistema */
@@ -1047,43 +1053,49 @@ body {
 
 /* Ajustes para botões de preferência no mobile */
 @media (max-width: 768px) {
+    /* Reduzindo drasticamente o tamanho dos botões de preferência */
+    .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .form-group input[type="radio"] {
+        width: 16px !important;
+        height: 16px !important;
+        margin: 0 !important;
+    }
+    
     .form-group input[type="radio"] + label {
-        font-size: 0.9rem;
-        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.85rem !important;
+        padding: var(--spacing-xs) var(--spacing-sm) !important;
+        margin-bottom: var(--spacing-xs) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: var(--spacing-xs) !important;
+        border: 1px solid #E5E5E7 !important;
+        border-radius: var(--radius-sm) !important;
+        background: var(--nessler-white) !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        min-height: 40px !important; /* Altura mínima reduzida */
     }
     
-    .radio-group {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-xs);
+    .form-group input[type="radio"]:checked + label {
+        border-color: var(--nessler-orange) !important;
+        background-color: rgba(255, 87, 34, 0.1) !important;
+        color: var(--nessler-orange) !important;
+        font-weight: 500 !important;
     }
     
-    .radio-group label {
-        display: flex;
-        align-items: center;
-        padding: var(--spacing-sm);
-        border: 1px solid #E5E5E7;
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 0.9rem;
+    /* Container dos radio buttons mais compacto */
+    .form-group:has(input[type="radio"]) {
+        margin-bottom: var(--spacing-md) !important;
     }
     
-    .radio-group input[type="radio"] {
-        margin-right: var(--spacing-xs);
-        width: auto;
-    }
-    
-    .radio-group label:hover {
-        border-color: var(--nessler-orange);
-        background-color: rgba(255, 87, 34, 0.05);
-    }
-    
-    .radio-group input[type="radio"]:checked + label {
-        border-color: var(--nessler-orange);
-        background-color: rgba(255, 87, 34, 0.1);
-        color: var(--nessler-orange);
-        font-weight: 500;
+    .form-group:has(input[type="radio"]) > div {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-xs) !important;
     }
 }
 
