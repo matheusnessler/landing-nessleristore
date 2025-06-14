@@ -498,7 +498,7 @@
     <!-- Script para envio premium via EmailJS -->
     <script>
         // Inicializa EmailJS com chave pública
-        emailjs.init("Zfia-BEjfmKwx7OxJ"); // Você vai substituir pela sua chave
+        emailjs.init("YOUR_PUBLIC_KEY"); // Você vai substituir pela sua chave
         
         document.getElementById('consultoriaForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -534,7 +534,7 @@
             };
             
             // Envia email via EmailJS
-            emailjs.send('service_59qeug1', 'template_h3nydao', templateParams)
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
                 .then(function(response) {
                     // Sucesso - experiência premium
                     submitBtn.textContent = '✓ Enviado com Sucesso!';
@@ -551,22 +551,20 @@
                     }, 1500);
                     
                 }, function(error) {
-                    // Erro - fallback premium
+                    // Erro - fallback apenas em caso de falha real
                     console.error('Erro EmailJS:', error);
                     
-                    // Fallback: WhatsApp com experiência premium
-                    const whatsappMessage = `Olá! Gostaria de agendar uma consultoria Apple:%0A%0A👤 Nome: ${nome}%0A📱 WhatsApp: ${whatsapp}%0A🎯 Interesse: ${interesse}%0A📞 Preferência: ${preferenciaContato}`;
-                    
-                    submitBtn.textContent = 'Redirecionando para WhatsApp...';
+                    submitBtn.textContent = 'Erro no envio';
+                    submitBtn.style.backgroundColor = '#f44336';
                     
                     setTimeout(() => {
-                        window.open(`https://wa.me/5547989071575?text=${whatsappMessage}`, '_blank');
+                        alert('Houve um problema no envio. Por favor, tente novamente ou entre em contato via WhatsApp.');
                         
                         // Restaura botão
                         submitBtn.textContent = originalText;
+                        submitBtn.style.backgroundColor = '';
                         submitBtn.disabled = false;
-                        document.getElementById('consultoriaForm').reset();
-                    }, 1000);
+                    }, 2000);
                 });
         });
     </script>

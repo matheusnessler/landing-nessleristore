@@ -1013,3 +1013,34 @@ body {
     opacity: 0.9;
 }
 
+
+/* Botão flutuante WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none !important; /* Remove o traço/sublinhado */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    text-decoration: none !important; /* Garante que não apareça traço no hover */
+}
+
+.whatsapp-float i {
+    color: white;
+    font-size: 28px;
+    text-decoration: none !important; /* Remove traço do ícone também */
+}
+
