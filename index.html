@@ -498,7 +498,7 @@
     <!-- Script para envio premium via EmailJS -->
     <script>
         // Inicializa EmailJS com chave pública
-        emailjs.init("YOUR_PUBLIC_KEY"); // Você vai substituir pela sua chave
+        emailjs.init("Zfia-BEjfmKwx7OxJ"); // Você vai substituir pela sua chave
         
         document.getElementById('consultoriaForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -534,7 +534,7 @@
             };
             
             // Envia email via EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            emailjs.send('service_59qeug1', 'template_h3nydao', templateParams)
                 .then(function(response) {
                     // Sucesso - experiência premium
                     submitBtn.textContent = '✓ Enviado com Sucesso!';
