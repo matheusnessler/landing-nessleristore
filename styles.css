@@ -997,6 +997,22 @@ body {
     .hero-premium {
         background-size: 120% !important; /* Reduz o zoom para mostrar mais produtos */
         background-position: center center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        outline: none !important;
+    }
+    
+    /* Remove qualquer borda ou espaçamento que possa causar bordas brancas */
+    .hero-premium::before {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+    
+    .hero-content {
+        margin: 0 !important;
+        border: none !important;
     }
 }
 
@@ -1051,7 +1067,7 @@ body {
 }
 
 
-/* Ajustes para botões de preferência no mobile */
+/* Ajustes para botões de preferência no mobile - VERSÃO CORRIGIDA */
 @media (max-width: 768px) {
     /* Reduzindo drasticamente o tamanho dos botões de preferência */
     .form-group label {
@@ -1059,43 +1075,50 @@ body {
         margin-bottom: var(--spacing-xs);
     }
     
-    .form-group input[type="radio"] {
-        width: 16px !important;
-        height: 16px !important;
-        margin: 0 !important;
+    /* Estilo específico para o container dos radio buttons */
+    .radio-group {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-xs) !important;
+        margin-top: var(--spacing-xs) !important;
     }
     
-    .form-group input[type="radio"] + label {
-        font-size: 0.85rem !important;
-        padding: var(--spacing-xs) var(--spacing-sm) !important;
-        margin-bottom: var(--spacing-xs) !important;
+    /* Estilo para cada label dos radio buttons */
+    .radio-label {
         display: flex !important;
         align-items: center !important;
-        gap: var(--spacing-xs) !important;
+        padding: var(--spacing-xs) var(--spacing-sm) !important;
+        font-size: 0.85rem !important;
+        min-height: 35px !important; /* Altura bem reduzida */
         border: 1px solid #E5E5E7 !important;
         border-radius: var(--radius-sm) !important;
         background: var(--nessler-white) !important;
         cursor: pointer !important;
         transition: all 0.3s ease !important;
-        min-height: 40px !important; /* Altura mínima reduzida */
+        margin-bottom: 0 !important;
+        gap: var(--spacing-xs) !important;
     }
     
-    .form-group input[type="radio"]:checked + label {
+    /* Radio button menor */
+    .radio-label input[type="radio"] {
+        width: 16px !important;
+        height: 16px !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Estado checked */
+    .radio-label:has(input[type="radio"]:checked) {
         border-color: var(--nessler-orange) !important;
         background-color: rgba(255, 87, 34, 0.1) !important;
         color: var(--nessler-orange) !important;
         font-weight: 500 !important;
     }
     
-    /* Container dos radio buttons mais compacto */
-    .form-group:has(input[type="radio"]) {
-        margin-bottom: var(--spacing-md) !important;
-    }
-    
-    .form-group:has(input[type="radio"]) > div {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: var(--spacing-xs) !important;
+    /* Hover effect */
+    .radio-label:hover {
+        border-color: var(--nessler-orange) !important;
+        background-color: rgba(255, 87, 34, 0.05) !important;
     }
 }
 
