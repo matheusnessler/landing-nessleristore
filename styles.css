@@ -100,9 +100,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
     overflow: hidden;
 }
 
@@ -1109,6 +1111,8 @@ body {
     .radio-option-mobile input[type="radio"] {
         width: 12px !important;
         height: 12px !important;
+        transform: scale(0.7) !important;
+        margin: 0 !important;
     }
     
     .radio-text-mobile {
