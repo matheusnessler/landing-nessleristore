@@ -43,36 +43,12 @@ body {
     color: var(--nessler-gray-dark);
     background-color: var(--nessler-white);
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    margin: 0;
-    padding: 0;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
-}
-
-/* Correção específica para mobile - remove bordas brancas */
-@media (max-width: 768px) {
-    body, html {
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-    }
-    
-    .container {
-        padding: 0 var(--spacing-sm) !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
 }
 
 /* Header Premium */
@@ -1019,24 +995,8 @@ html {
     
     /* Ajuste da imagem hero para melhor visualização dos produtos no mobile */
     .hero-premium {
-        background-size: 120% !important; /* Reduz o zoom para mostrar mais produtos */
+        background-size: 120% !important;
         background-position: center center !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        outline: none !important;
-    }
-    
-    /* Remove qualquer borda ou espaçamento que possa causar bordas brancas */
-    .hero-premium::before {
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-    }
-    
-    .hero-content {
-        margin: 0 !important;
-        border: none !important;
     }
 }
 
@@ -1133,55 +1093,33 @@ html {
     color: inherit;
 }
 
-/* Estilo dos botões de preferência - MOBILE CORRIGIDO */
+/* Estilo dos botões de preferência - MOBILE ULTRA COMPACTO */
 @media (max-width: 768px) {
-    .radio-group-mobile {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        margin-top: 8px !important;
-    }
-    
     .radio-option-mobile {
-        display: flex !important;
-        align-items: center !important;
-        padding: 8px 12px !important;
-        min-height: 32px !important;
-        max-height: 32px !important;
-        border: 1px solid #E5E5E7 !important;
-        border-radius: 6px !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        background: var(--nessler-white) !important;
-        gap: 8px !important;
-        font-size: 0.8rem !important;
-        margin: 0 !important;
+        padding: 6px 10px !important;
+        min-height: 28px !important;
+        max-height: 28px !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 4px !important;
+        width: 120px !important;
+        max-width: 120px !important;
+        display: inline-flex !important;
     }
     
     .radio-option-mobile input[type="radio"] {
-        width: 14px !important;
-        height: 14px !important;
-        margin: 0 !important;
-        flex-shrink: 0 !important;
+        width: 12px !important;
+        height: 12px !important;
     }
     
     .radio-text-mobile {
-        font-size: 0.8rem !important;
-        color: inherit !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        font-size: 0.75rem !important;
     }
     
-    .radio-option-mobile:hover {
-        border-color: var(--nessler-orange) !important;
-        background-color: rgba(255, 87, 34, 0.05) !important;
-    }
-    
-    .radio-option-mobile:has(input[type="radio"]:checked) {
-        border-color: var(--nessler-orange) !important;
-        background-color: rgba(255, 87, 34, 0.1) !important;
-        color: var(--nessler-orange) !important;
-        font-weight: 500 !important;
+    .radio-group-mobile {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        justify-content: flex-start !important;
     }
 }
 
