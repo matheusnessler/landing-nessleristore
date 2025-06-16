@@ -1170,9 +1170,11 @@ body {
   .hero-premium {
     background-image: url('images/hero-section-final-corrected.png');
     background-position: right center !important;
-    background-size: 220% auto !important;
+    background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: scroll !important;
+    width: 100% !important;
+    height: 100vh;
     overflow: hidden !important;
   }
 }
