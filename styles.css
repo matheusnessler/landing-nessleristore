@@ -100,12 +100,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    z-index: 1;
 }
 
 /* Removido o pseudo-elemento ::before com gradiente */
@@ -115,7 +117,7 @@ body {
     margin: 0 auto;
     padding: var(--spacing-xxxl) var(--spacing-md);
     position: relative;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
 }
 
@@ -1098,25 +1100,26 @@ body {
 /* Estilo dos botões de preferência - MOBILE ULTRA COMPACTO */
 @media (max-width: 768px) {
     .radio-option-mobile {
-        padding: 6px 10px !important;
-        min-height: 28px !important;
-        max-height: 28px !important;
-        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+        font-size: 0.7rem !important;
         margin-bottom: 4px !important;
-        width: 120px !important;
-        max-width: 120px !important;
+        width: 100px !important;
+        max-width: 100px !important;
         display: inline-flex !important;
+        border-radius: 4px !important;
     }
     
     .radio-option-mobile input[type="radio"] {
-        width: 12px !important;
-        height: 12px !important;
-        transform: scale(0.7) !important;
+        width: 10px !important;
+        height: 10px !important;
+        transform: scale(0.5) !important;
         margin: 0 !important;
     }
     
     .radio-text-mobile {
-        font-size: 0.75rem !important;
+        font-size: 0.7rem !important;
     }
     
     .radio-group-mobile {
