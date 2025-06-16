@@ -997,8 +997,8 @@ body {
     
     /* Ajuste da imagem hero para melhor visualização dos produtos no mobile */
     .hero-premium {
-        background-size: 120% !important;
-        background-position: center center !important;
+        background-size: cover !important;
+        background-position: center !important;
     }
 }
 
