@@ -1165,3 +1165,14 @@ body {
     overflow-x: hidden !important;
   }
 }
+
+@media (max-width: 768px) {
+  .hero-premium {
+    background-image: url('images/hero-section-final-corrected.png');
+    background-position: right center !important;
+    background-size: 220% auto !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    overflow: hidden !important;
+  }
+}
